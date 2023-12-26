@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-// API key - 233a7c9ff480e6093046d37ee7b8a400
+
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://api.openweathermap.org/data/2.5/")
             .build().create(ApiInterface::class.java)
-        val response = retrofit.getWeatherData(cityName, "233a7c9ff480e6093046d37ee7b8a400", "metric")
+        val response = retrofit.getWeatherData(cityName, "YOUR_API_KEY", "metric")
         response.enqueue(object : Callback<weatherApp>{
             override fun onResponse(call: Call<weatherApp>, response: Response<weatherApp>) {
                 val responseBody = response.body()
